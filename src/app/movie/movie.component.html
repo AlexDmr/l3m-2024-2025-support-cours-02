@@ -1,0 +1,23 @@
+@let movie = data();
+
+<mat-card class="movie-card">
+    <mat-card-header>
+      <mat-card-title>{{ movie.title }}</mat-card-title>
+      <mat-card-subtitle>{{ movie.release_date}}</mat-card-subtitle>
+    </mat-card-header>
+    <img mat-card-image [src]="posterURL()" [alt]="'Poster for' + movie.title">
+    <mat-card-content>
+      <p>{{ movie.overview }}</p>
+      Avec :
+      <ul>
+        @for (actor of movie.cast; track actor.id) {
+          <li>
+            {{ actor.name }} dans le rôle de {{ actor.character }}
+          </li>
+        }
+      </ul>
+    </mat-card-content>
+    <mat-card-actions>
+      <button mat-button>Glop glop</button>
+    </mat-card-actions>
+  </mat-card>

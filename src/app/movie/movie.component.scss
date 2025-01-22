@@ -1,0 +1,32 @@
+:host {
+    display: inline-block;
+    margin: .5em;
+
+    mat-card {
+        width: 300px;
+
+        mat-card-header {
+            display: flow-root;
+        }
+        
+        mat-card-title {
+            white-space: nowrap;
+            text-overflow: ellipsis;
+            overflow: hidden;
+        }
+
+        img[mat-card-image] {
+            height: 200px;
+            object-fit: cover;
+        }
+
+        mat-card-content {
+            height: 5em;
+            overflow-y: scroll;
+
+            &.cast {
+                border-top: solid black 1px;
+            }
+        }
+    }
+}
