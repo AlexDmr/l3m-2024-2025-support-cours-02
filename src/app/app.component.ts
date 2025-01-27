@@ -23,11 +23,12 @@ export class AppComponent {
   private readonly _tmdbSrv = inject(TmdbService);
   protected apiKey = this._tmdbSrv.apiKey;
 
-  private readonly _movies = signal<readonly MovieSearch[]/* MovieAndCast[]*/>([]);
+  private readonly _movies = signal<readonly MovieAndCast[]>([]);
   protected readonly movies = this._movies.asReadonly();
 
-  searchMovie(query: string) {
-    console.error("à implémenter...")
+  async searchMovie(query: string) {
+    const L = await this._tmdbSrv.searchMovieAndCast(query);
+    this._movies.set( L )
   }
 
 }

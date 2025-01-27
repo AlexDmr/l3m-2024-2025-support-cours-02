@@ -15,7 +15,7 @@ const defaultPoster = "https://png.pngtree.com/png-clipart/20210310/original/png
   styleUrl: './movie.component.scss'
 })
 export class MovieComponent {
-  public readonly data = input.required<MovieSearch/*MovieAndCast*/>();
+  public readonly data = input.required<MovieAndCast>();
 
   protected readonly posterURL = computed(
     () => this.data().poster_path === null ? defaultPoster : `https://image.tmdb.org/t/p/w500${this.data().poster_path}`
